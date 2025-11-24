@@ -59,6 +59,24 @@
         <p><strong>Answer:</strong> {{ match_a }}</p>
     </div>
     {% endif %}
+
+    <!-- ADDED: LSA Multi-Match Output (Your Feature) -->
+    {% if multi_matches %}
+    <div class="answer-box" style="margin-top: 20px;">
+        <h3>Similar Questions Found:</h3>
+        <ul>
+            {% for m in multi_matches %}
+            <li style="margin-bottom: 10px;">
+                <strong>{{ m.confidence }}% match</strong><br>
+                <strong>Q:</strong> {{ m.question }}<br>
+                <strong>A:</strong> {{ m.answer }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    <!-- END OF ADDED SECTION -->
+
 </div>
 
 </body>
